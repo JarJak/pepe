@@ -33,25 +33,14 @@ require_once 'config.php';
 <script type="text/javascript">
     Dropzone.options.dzform={
         paramName: "file",
-        autoProcessQueue: false,
-        maxFilesize: 5,
-        maxFiles: 1,
-        thumbnailWidth: 50,
-        thumbnailHeight: 50,
+        autoProcessQueue: true,
+        maxFilesize: 8,
+        maxFiles: null,
+        thumbnailWidth: 250,
         clickable: true,
         init:
         function() {
             var dzform = this;
-        this.on("maxfilesexceeded", function(file) { this.removeAllFiles();     this.addFile(file);  });
-
-            this.element.querySelector("button[type=submit]").addEventListener("click", function(e) {
-           // Make sure that the form isn't actually being sent.
-           e.preventDefault();
-           e.stopPropagation();
-           dzform.processQueue();
-         });
-
-
     }
 }
 </script>
