@@ -25,4 +25,10 @@ function max_file_upload_in_bytes() {
     return min($max_upload, $max_post, $memory_limit);
 }
 
+
+function print_tpl_start($title="pepe")
+{
+	echo(str_replace("{TITLE}", $title, file_get_contents("tpl/start.tpl")));
+}
+
 ?>

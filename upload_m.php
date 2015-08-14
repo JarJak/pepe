@@ -73,6 +73,10 @@ try {
         throw new RuntimeException('Failed to move uploaded file.');
     }
 
+    $statement = $DBO->prepare("UPDATE `imgs` SET filename= :filename WHERE id= :cid ");
+    $statement->execute(array(':filename' => $cid.'.'.$ext, ':cid'=> $cid ));
+    //TO DO ERROR HANDLING
+
     echo 'File is uploaded successfully.';
 
 } catch (RuntimeException $e) {

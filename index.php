@@ -1,21 +1,10 @@
 <?php
 require_once 'config.php';
 
-
+print_tpl_start();
 ?>
 
-<!DOCTYPE html>
-<meta charset="utf8">
-<html>
-<head>
-<link href="css/dropzone.css" type="text/css" rel="stylesheet" />
-<link href="css/bootstrap.min.css" type="text/css" rel="stylesheet" />
-<link href="css/custom.css" type="text/css" rel="stylesheet" />
-<script src="js/jquery-2.1.4.min.js"></script>
-<script src="js/dropzone.js"></script>
-<script src="js/bootstrap.min.js"></script>
-</head>
-<body>
+
 
 
 <div class="container-fluid">
