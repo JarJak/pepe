@@ -1,9 +1,14 @@
 <?php
 require_once 'config.php';
 
-$statement = $DBO->prepare("SELECT * FROM imgs ORDER BY RAND() LIMIT 100", array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
-//TODO perf rand()
-$statement->execute();
+$tags = explode(" ", trim($_POST['tags']));
+
+$query1 = "SELECT b.* FROM tagmap bt, imgs b, tags t WHERE bt.tag_id = t.id AND (t.name IN (";
+$query2 = ")) AND b.id = bt.img_id GROUP BY b.id HAVING COUNT(b.id) = ?";
+$inp = str_repeat("?, " , count($tags)-1)."?";
+
+$statement = $DBO->prepare($query1.$inp.$query2, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+$statement->execute(array_merge($tags, array(count($tags))));
 $res = $statement->fetchAll();
 
 $arr = array();

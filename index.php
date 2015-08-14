@@ -20,13 +20,18 @@ print_tpl_start();
     <input type="submit" class="btn btn-default" value="wyślij wiele">
 </form>
 
+<form action="sort.php">
+    <input type="submit" class="btn btn-default" value="porządkuj">
+</form>
+
+<form action="search.php">
+    <input type="submit" class="btn btn-default" value="przeglądaj">
+</form>
+
 </div>
 
 
 </div>
-
-
-
 
 
 
